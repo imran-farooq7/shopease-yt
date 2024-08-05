@@ -1,8 +1,7 @@
+import prisma from "@/prisma/prisma";
 import { stripe } from "@/utils/constants";
-import { PrismaClient } from "@prisma/client";
 import { NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
-const prisma = new PrismaClient();
 export async function POST(req: NextRequest) {
 	const sig = req.headers.get("stripe-signature") as string;
 	const body = await req.text();
